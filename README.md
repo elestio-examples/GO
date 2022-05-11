@@ -5,7 +5,7 @@
 
 Example application and CI/CD pipeline showing how to deploy a GO application to elestio.
 
-<img src="assets\images\screenshot-1.jpg" alt="screenshot of the example app" width="100%" />
+<img src="assets\images\screenshot.jpg" alt="screenshot of the example app" width="100%" />
 
 ## CI/CD on Elestio
 

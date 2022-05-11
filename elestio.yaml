@@ -1,0 +1,20 @@
+config:
+  runTime: "GO"
+  version: ""
+  framework: "GO"
+  buildCommand: "go build"
+  buildDir: "./"
+  runCommand: "main.exe"
+ports:
+  - protocol: "HTTPS"
+    targetProtocol: "HTTP"
+    listeningPort: "443"
+    targetPort: "8080"
+    public: true
+    path: "/"
+    isAuth: false
+    login: ""
+    password: ""
+environments:
+  - key: "ENV"
+    value: "production"

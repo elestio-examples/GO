@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Basic -->
+
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- Mobile Metas -->
+    <meta
+      name="viewport"
+      content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <!-- Site Metas -->
+    <title>Elestio static example</title>
+    <meta name="description" content="" />
+    
+    <link rel="icon" type="image/png" href="/static/images/favicon.png">
+
+    <link rel="stylesheet" href="/static/css/style.css" />
+  </head>
+
+  <body id="home" data-spy="scroll" data-target="#navbar-wd" data-offset="98">
+
+    <!-- Main content -->
+    <header class="app-header">
+      <img src="/static/images/elestio-logo.svg" alt="logo" />
+    </header>
+
+
+
+    <div class="app-body">
+      <div class="app-heading" style="margin-bottom: 40px;">
+        <h1>Welcome to Elestio - GO</h1>
+        <h4>Deploy your apps quickly with the easiest CI/CD system</h2>
+      </div>
+
+      <p class="app-info-block">
+        This Host <strong class="subVal" id="host">{{.HostIp}}</strong>
+      </p>
+
+      <p class="app-info-block">
+        Your IP <strong class="subVal" id="yourIP">{{.ClientIp}}</strong>
+      </p>
+      
+      {{if .ClientLocation }}
+      <p class="app-info-block">
+        Your Location <strong class="subVal" id="location">{{.ClientLocation}}</strong>
+      </p>
+      {{ end }}
+
+      <p class="app-info-block">
+        Latency to server <strong class="subVal" id="latency">? ms</strong>
+      </p>
+
+      
+
+      <div class="app-deploy">
+        <a href="https://dash.elest.io/deploy?source=cicd&social=Github&url=https://github.com/elestio-examples/static" class="btn mb-10-m btn-try"
+          >Deploy on Elestio
+        </a>
+      </div>
+    </div>
+
+    <!-- BG Anim -->
+    <div class="area">
+        <ul class="circles">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+
+    
+
+    <!-- End Main content -->
+    <!-- ALL JS FILES -->
+  </body>
+  <script>
+    function getLatency() {
+        var started = new Date().getTime();
+        var url = "/data?t=" + (+new Date());
+        fetch(url)
+        .then(function(response) {
+            var ended = new Date().getTime();
+            var milliseconds = ended - started;
+            document.getElementById("latency").innerHTML = milliseconds + " ms";
+        }).catch(function(error) {
+        document.getElementById("latency").innerHTML = "? ms";
+        });
+    }
+    var timerLatency = window.setInterval(getLatency, 1000);
+  </script>
+</html>

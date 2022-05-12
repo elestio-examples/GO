@@ -4,7 +4,7 @@ config:
   framework: "GO"
   buildCommand: "go build"
   buildDir: "./"
-  runCommand: "main.exe"
+  runCommand: "go run .\main.go"
 ports:
   - protocol: "HTTPS"
     targetProtocol: "HTTP"

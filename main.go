@@ -58,11 +58,10 @@ func main() {
 	})
 
 	server := http.Server{
-		Addr: "127.0.0.1:8080",
+		Addr: "127.0.0.1:3000",
 	}
 
 	server.ListenAndServe()
-	fmt.Println("Listening at port 8080")
 }
 
 func getClientAddress(ip string) string {

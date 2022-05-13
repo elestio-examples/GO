@@ -8,6 +8,7 @@ import (
 	"net"
 	"net/http"
 	"strings"
+	"log"
 )
 
 type InfoData struct {
@@ -61,7 +62,8 @@ func main() {
 		Addr: "127.0.0.1:3000",
 	}
 
-	server.ListenAndServe()
+	log.Println("Listening on 3000")
+	log.Fatal(server.ListenAndServe())
 }
 
 func getClientAddress(ip string) string {

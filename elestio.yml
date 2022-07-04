@@ -5,6 +5,8 @@ config:
   buildCommand: "go build -o main"
   buildDir: "./"
   runCommand: "./main"
+  icon: "assets/images/go.svg"
+  screenshot: "assets/images/screenshot.jpg"
 ports:
   - protocol: "HTTPS"
     targetProtocol: "HTTP"
@@ -24,3 +26,6 @@ exposedPorts:
 environments:
   - key: "ENV"
     value: "production"
+webUI:
+  - url: "https://[CI_CD_DOMAIN]"
+    label: "Website"    
